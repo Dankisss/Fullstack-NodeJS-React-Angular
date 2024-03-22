@@ -1,18 +1,16 @@
 class PalindromeGenerator {
     constructor() {
         this.generator = {
-            [Symbol.iterator]() {
+            [Symbol.iterator]: function*() {
                 let cur = 0;
-                return {
-                    next() {
-                        do {
-                            cur++;
-                        }while(!isPalindrome(cur))
-
-                        return {done: false, value: cur}
+                
+                while(true) {
+                    if (isPalindrome(cur)) {
+                        yield cur;
                     }
-                    
+                    cur++;
                 }
+                
             }
         }
     }
