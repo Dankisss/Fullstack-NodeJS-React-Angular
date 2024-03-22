@@ -1,5 +1,6 @@
 let p = new Promise((resolve, reject) => {
     let a = Math.random()
+    console.log(a)
     if (a > 0.5) {
     resolve("Az")
     }else {
@@ -7,7 +8,7 @@ let p = new Promise((resolve, reject) => {
     }
 })
 
-p().then((message) => {
+p.then((message) => {
     console.log(`This is in the resolve ${message}`)
 }).catch((message) => {
     console.log(`This is in the reject ${message}`)
